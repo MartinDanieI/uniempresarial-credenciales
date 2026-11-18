@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/*
+ * Sistema visual tomado de uniempresarial.edu.co:
+ * fondo blanco, texto pizarra #22323d, azul institucional #0132af / #003da5,
+ * azul noche #1a2340, rojo #c8102e, gris azulado #e2e7f0.
+ * Inter para títulos (800–900, tracking cerrado) y Poppins para etiquetas y botones.
+ * Botones y campos en píldora con borde gris claro; tarjetas redondeadas con borde.
+ */
+@theme {
+  --color-noche: #ffffff;
+  --color-superficie: #ffffff;
+  --color-fondo: #f3f5f9;
+  --color-tinta: #22323d;
+  --color-gris: #5b6883;
+  --color-linea: #dfe3ea;
+  --color-linea-media: #c5ccd8;
+  --color-azul: #0132af;
+  --color-azul-hondo: #1a2340;
+  --color-azul-claro: #003da5;
+  --color-azul-pie: #2f4494;
+  --color-azul-suave: #e2e7f0;
+  --color-ue: #c8102e;
+  --color-ue-marca: #c8102e;
+  --color-ue-dark: #9e0c24;
+  --color-ue-soft: #fdeef1;
+  --color-qr: #ffffff;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-poppins: var(--font-poppins-var), var(--font-inter), sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --text-display: 3.25rem;
+  --text-display--line-height: 1.02;
+  --text-titulo: 2.25rem;
+  --text-titulo--line-height: 1.08;
+
+  --radius-pill: 50px;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-noche);
+  color: var(--color-tinta);
+}
+
+::selection {
+  background: var(--color-azul);
+  color: #fff;
+}
+
+/* Etiqueta pequeña: Poppins en mayúsculas, como "MODALIDAD PRESENCIAL DUAL" del sitio */
+@utility rotulo {
+  font-family: var(--font-poppins);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+/* Títulos: Inter extra grueso con tracking cerrado */
+@utility titulo {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+@utility divisor {
+  border-top: 1px solid var(--color-linea);
+}
+
+@media print {
+  @page {
+    size: letter;
+    margin: 12mm;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-plain {
+    border: none !important;
+    margin: 0 !important;
+    max-width: none !important;
+  }
+  .print-break-avoid {
+    break-inside: avoid;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
